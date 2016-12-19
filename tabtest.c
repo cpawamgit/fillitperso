@@ -21,3 +21,5 @@ int main()
 	ft_print(tab);
 	return (0);
 }
+
+t_piece	ft_
