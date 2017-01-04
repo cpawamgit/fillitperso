@@ -1,23 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   ft_strmaip.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cyrmorin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/22 23:23:54 by cyrmorin          #+#    #+#             */
-/*   Updated: 2016/11/22 23:23:57 by cyrmorin         ###   ########.fr       */
+/*   Created: 2016/11/07 21:29:24 by cyrmorin          #+#    #+#             */
+/*   Updated: 2016/11/07 21:29:26 by cyrmorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include "fillit.h"
+#include <string.h>
+#include <stdlib.h>
 
-void	ft_lstadd2(t_piece **alst, t_piece *new)
+char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 {
-	t_piece *tmp;
+	int		i;
+	int		j;
+	char	*cpy;
 
-	tmp = *alst;
-	new->next = tmp;
-	*alst = new;
+	i = 0;
+	j = 0;
+	if (s == NULL && f == NULL)
+		return (NULL);
+	while (s[i] != '\0')
+	{
+		i++;
+	}
+	cpy = (char *)malloc(sizeof(char) * i + 1);
+	if (cpy)
+	{
+		while (s[j] != '\0')
+		{
+			cpy[j] = f(j, s[j]);
+			j++;
+		}
+		cpy[j] = '\0';
+		return (cpy);
+	}
+	else
+		return (NULL);
 }

@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cyrmorin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/15 19:13:17 by cyrmorin          #+#    #+#             */
-/*   Updated: 2016/12/15 19:13:20 by cyrmorin         ###   ########.fr       */
+/*   Created: 2016/11/25 18:38:08 by cyrmorin          #+#    #+#             */
+/*   Updated: 2016/11/25 18:38:10 by cyrmorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
-
-# include "libft/libft.h"
-
-typedef struct s_piece
+char	*ft_strcpy(char *s1, const char *s2)
 {
-	int	*tab;
-	char	letter;
-	struct s_piece *next;
-}				t_piece;
+	int i;
+	int size;
 
-void	ft_add_piece_to_list(int *tab, t_piece *piece, t_piece **alst);
-void	ft_lstadd2(t_piece **alst, t_piece *new);
-t_piece *ft_lstnew2(int *tab, char c);
-
-#endif
+	i = 0;
+	size = 0;
+	while (s2[size] != '\0')
+		size++;
+	while (i < size)
+	{
+		s1[i] = s2[i];
+		i++;
+	}
+	s1[i] = '\0';
+	return (s1);
+}

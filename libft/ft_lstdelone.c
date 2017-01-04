@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cyrmorin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/15 19:13:17 by cyrmorin          #+#    #+#             */
-/*   Updated: 2016/12/15 19:13:20 by cyrmorin         ###   ########.fr       */
+/*   Created: 2016/11/19 15:59:12 by cyrmorin          #+#    #+#             */
+/*   Updated: 2016/11/19 15:59:14 by cyrmorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
+#include "libft.h"
 
-# include "libft/libft.h"
-
-typedef struct s_piece
+void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
 {
-	int	*tab;
-	char	letter;
-	struct s_piece *next;
-}				t_piece;
+	t_list *tmp;
 
-void	ft_add_piece_to_list(int *tab, t_piece *piece, t_piece **alst);
-void	ft_lstadd2(t_piece **alst, t_piece *new);
-t_piece *ft_lstnew2(int *tab, char c);
-
-#endif
+	tmp = *alst;
+	if (*alst)
+	{
+		(*del)(tmp->content, tmp->content_size);
+		free(*alst);
+		*alst = NULL;
+	}
+}

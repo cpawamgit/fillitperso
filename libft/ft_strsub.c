@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cyrmorin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/15 19:13:17 by cyrmorin          #+#    #+#             */
-/*   Updated: 2016/12/15 19:13:20 by cyrmorin         ###   ########.fr       */
+/*   Created: 2016/11/07 22:23:47 by cyrmorin          #+#    #+#             */
+/*   Updated: 2016/11/07 22:23:50 by cyrmorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
+#include "libft.h"
 
-# include "libft/libft.h"
-
-typedef struct s_piece
+char	*ft_strsub(const char *s, unsigned int start, size_t len)
 {
-	int	*tab;
-	char	letter;
-	struct s_piece *next;
-}				t_piece;
+	size_t	i;
+	char	*cutstr;
 
-void	ft_add_piece_to_list(int *tab, t_piece *piece, t_piece **alst);
-void	ft_lstadd2(t_piece **alst, t_piece *new);
-t_piece *ft_lstnew2(int *tab, char c);
-
-#endif
+	i = 0;
+	if (s == NULL)
+		return (NULL);
+	cutstr = (char *)malloc(sizeof(char) * len + 1);
+	if (cutstr)
+	{
+		while (i < len)
+		{
+			cutstr[i] = s[start + i];
+			i++;
+		}
+		cutstr[i] = '\0';
+		return (cutstr);
+	}
+	else
+		return (NULL);
+}

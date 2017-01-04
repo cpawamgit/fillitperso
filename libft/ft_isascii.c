@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cyrmorin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/15 19:13:17 by cyrmorin          #+#    #+#             */
-/*   Updated: 2016/12/15 19:13:20 by cyrmorin         ###   ########.fr       */
+/*   Created: 2016/11/25 17:05:39 by cyrmorin          #+#    #+#             */
+/*   Updated: 2016/11/25 17:05:44 by cyrmorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
+#include "libft.h"
 
-# include "libft/libft.h"
-
-typedef struct s_piece
+int	ft_isascii(int c)
 {
-	int	*tab;
-	char	letter;
-	struct s_piece *next;
-}				t_piece;
-
-void	ft_add_piece_to_list(int *tab, t_piece *piece, t_piece **alst);
-void	ft_lstadd2(t_piece **alst, t_piece *new);
-t_piece *ft_lstnew2(int *tab, char c);
-
-#endif
+	if (c >= 0 && c <= 127)
+		return (1);
+	else
+		return (0);
+}

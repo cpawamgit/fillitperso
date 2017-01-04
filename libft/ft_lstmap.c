@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cyrmorin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/15 19:13:17 by cyrmorin          #+#    #+#             */
-/*   Updated: 2016/12/15 19:13:20 by cyrmorin         ###   ########.fr       */
+/*   Created: 2016/11/22 23:37:07 by cyrmorin          #+#    #+#             */
+/*   Updated: 2016/11/22 23:37:10 by cyrmorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
+#include "libft.h"
 
-# include "libft/libft.h"
-
-typedef struct s_piece
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	int	*tab;
-	char	letter;
-	struct s_piece *next;
-}				t_piece;
+	t_list *new;
 
-void	ft_add_piece_to_list(int *tab, t_piece *piece, t_piece **alst);
-void	ft_lstadd2(t_piece **alst, t_piece *new);
-t_piece *ft_lstnew2(int *tab, char c);
-
-#endif
+	new = NULL;
+	if (lst)
+	{
+		new = (t_list*)malloc(sizeof(t_list));
+		new = (*f)(lst);
+		lst = lst->next;
+		new->next = ft_lstmap(lst, (*f));
+	}
+	return (new);
+}

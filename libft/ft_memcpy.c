@@ -1,40 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cyrmorin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/19 15:39:33 by cyrmorin          #+#    #+#             */
-/*   Updated: 2016/11/19 15:39:35 by cyrmorin         ###   ########.fr       */
+/*   Created: 2016/11/13 15:55:03 by cyrmorin          #+#    #+#             */
+/*   Updated: 2016/11/13 15:55:04 by cyrmorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_piece	*ft_lstnew2(void const *content, size_t content_size)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	t_piece	*new;
-	void	*tmp;
+	size_t		i;
+	char		*d;
+	const char	*s;
 
-	tmp = ((void *)content);
-	new = NULL;
-	new = (t_piece*)malloc(sizeof(t_piece));
-	if (new)
+	i = 0;
+	d = dst;
+	s = src;
+	while (i < n)
 	{
-		if (tmp == NULL)
-		{
-			new->tab = NULL;
-			new->next = NULL;
-		}
-		else
-		{
-			new->tab = (void *)malloc(sizeof(*content) * content_size);
-			ft_memcpy(new->tab, content, content_size);
-			new->next = NULL;
-		}
-		return (new);
+		d[i] = s[i];
+		i++;
 	}
-	else
-		return (NULL);
+	return (dst);
 }

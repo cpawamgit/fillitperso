@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cyrmorin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/15 19:13:17 by cyrmorin          #+#    #+#             */
-/*   Updated: 2016/12/15 19:13:20 by cyrmorin         ###   ########.fr       */
+/*   Created: 2016/11/13 20:23:08 by cyrmorin          #+#    #+#             */
+/*   Updated: 2016/11/13 20:23:10 by cyrmorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
+#include "libft.h"
 
-# include "libft/libft.h"
-
-typedef struct s_piece
+char	*ft_strrchr(const char *s, int c)
 {
-	int	*tab;
-	char	letter;
-	struct s_piece *next;
-}				t_piece;
+	char	a;
+	int		i;
 
-void	ft_add_piece_to_list(int *tab, t_piece *piece, t_piece **alst);
-void	ft_lstadd2(t_piece **alst, t_piece *new);
-t_piece *ft_lstnew2(int *tab, char c);
-
-#endif
+	a = c;
+	i = ft_strlen(s);
+	if (s == NULL || i == 0)
+		return (NULL);
+	while (i >= 0)
+	{
+		if (((char)s[i]) == a)
+		{
+			return ((char *)&s[i]);
+		}
+		i--;
+	}
+	return (NULL);
+}

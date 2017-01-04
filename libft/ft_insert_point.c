@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_insert_point.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cyrmorin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/15 19:13:17 by cyrmorin          #+#    #+#             */
-/*   Updated: 2016/12/15 19:13:20 by cyrmorin         ###   ########.fr       */
+/*   Created: 2016/12/01 13:55:18 by cyrmorin          #+#    #+#             */
+/*   Updated: 2016/12/01 13:55:23 by cyrmorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
+#include "libft.h"
 
-# include "libft/libft.h"
-
-typedef struct s_piece
+char	*ft_insert_point(char *str)
 {
-	int	*tab;
-	char	letter;
-	struct s_piece *next;
-}				t_piece;
+	char *new;
 
-void	ft_add_piece_to_list(int *tab, t_piece *piece, t_piece **alst);
-void	ft_lstadd2(t_piece **alst, t_piece *new);
-t_piece *ft_lstnew2(int *tab, char c);
-
-#endif
+	new = NULL;
+	if (str == NULL)
+		return (NULL);
+	if (str[ft_strlen(str) - 1] != '.')
+	{
+		new = (char*)malloc(sizeof(char) * ft_strlen(str) + 2);
+		if (new)
+		{
+			ft_strcpy(new, str);
+			new[ft_strlen(str)] = '.';
+			new[ft_strlen(str) + 1] = '\0';
+		}
+	}
+	else
+		return (str);
+	return (new);
+}
