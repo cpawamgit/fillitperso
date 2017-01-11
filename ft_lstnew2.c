@@ -57,6 +57,7 @@ t_piece *ft_lstnew2(int *tab, char c)
 	if (!new->tab)
 		return (NULL);
 	new->letter = c;
+	new->next = NULL;
 	while (i < 4)
 	{
 		new->tab[i] = tab[i];

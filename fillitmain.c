@@ -33,7 +33,7 @@ char	*ft_clean(char *str, char *buffer)
 	str[i] = '\0';
 	return (str);
 }
-
+/*
 char **ft_initialize_tab(char** tab)
 {
 	int i;
@@ -53,7 +53,7 @@ char **ft_initialize_tab(char** tab)
 		ft_bzero(tab[i], 9);
 		while (i < 3 && j < 6)
 	}
-}
+}*/
 /*
 int	ft_isvalid(char **tab)
 {

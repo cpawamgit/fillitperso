@@ -3,11 +3,12 @@
 
 //mikael m envoi le tableau et un t_pice initialise a NULL
 
-void	ft_add_piece_to_list(int *tab, t_piece *piece, t_piece **alst)
+t_piece	*ft_add_piece_to_list(int *tab, t_piece *piece, t_piece *first)
 {
 	static char c = 'A';
 
 	piece = ft_lstnew2(tab, c);
-	ft_lstadd2(alst, piece);
+	first = ft_lstadd2(first, piece);
 	c++;
+	return (first);
 }

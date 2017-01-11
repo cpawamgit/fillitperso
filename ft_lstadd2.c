@@ -13,11 +13,23 @@
 #include "libft/libft.h"
 #include "fillit.h"
 
-void	ft_lstadd2(t_piece **alst, t_piece *new)
+
+#include <stdio.h>
+t_piece	*ft_lstadd2(t_piece *first, t_piece *new)
 {
 	t_piece *tmp;
 
-	tmp = *alst;
-	new->next = tmp;
-	*alst = new;
+	tmp = NULL;
+	if (first == NULL)	
+		return (new);
+	else
+	{
+		tmp = first;
+		while (tmp->next != NULL)
+		{
+			tmp = tmp->next;
+		}
+		tmp->next = new;
+		return (first);
+	}
 }

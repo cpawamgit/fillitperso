@@ -22,8 +22,8 @@ typedef struct s_piece
 	struct s_piece *next;
 }				t_piece;
 
-void	ft_add_piece_to_list(int *tab, t_piece *piece, t_piece **alst);
-void	ft_lstadd2(t_piece **alst, t_piece *new);
+t_piece	*ft_add_piece_to_list(int *tab, t_piece *piece, t_piece *first);
+t_piece	*ft_lstadd2(t_piece *first, t_piece *new);
 t_piece *ft_lstnew2(int *tab, char c);
 
 #endif
