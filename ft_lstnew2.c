@@ -1,50 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cyrmorin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mbriffau <mbriffau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/19 15:39:33 by cyrmorin          #+#    #+#             */
-/*   Updated: 2016/11/19 15:39:35 by cyrmorin         ###   ########.fr       */
+/*   Updated: 2017/01/14 23:38:24 by mbriffau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
 #include "fillit.h"
-/*
-t_piece	*ft_lstnew2(void const *content, size_t content_size, char c)
-{
-	t_piece	*new;
-	void	*tmp;
 
-	tmp = ((void *)content);
-	new = NULL;
-	new = (t_piece*)malloc(sizeof(t_piece));
-	if (new)
-	{
-		if (tmp == NULL)
-		{
-			new->tab = NULL;
-			new->next = NULL;
-		}
-		else
-		{
-			new->tab = (int *)malloc(sizeof(int) * content_size);
-			if (!(new->tab))
-				return (NULL);
-			new->letter = c;
-			ft_memcpy(new->tab, content, content_size);
-			new->next = NULL;
-		}
-		return (new);
-	}
-	else
-		return (NULL);
-}
-*/
-t_piece *ft_lstnew2(int *tab, char c)
+t_piece		*ft_lstnew2(size_t *tab, char c)
 {
+	printf("lstnew\n");
 	t_piece *new;
 	int i;
 
@@ -53,7 +24,7 @@ t_piece *ft_lstnew2(int *tab, char c)
 	new = (t_piece*)malloc(sizeof(t_piece));
 	if (!new)
 		return (NULL);
-	new->tab = (int *)malloc(sizeof(int) * 4);
+	new->tab = (size_t *)malloc(sizeof(size_t) * 4);
 	if (!new->tab)
 		return (NULL);
 	new->letter = c;

@@ -1,9 +1,18 @@
-#include "libft/libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_add_piece_to_list.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbriffau <mbriffau@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/01/10 23:56:36 by mbriffau          #+#    #+#             */
+/*   Updated: 2017/01/14 23:38:23 by mbriffau         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fillit.h"
 
-//mikael m envoi le tableau et un t_pice initialise a NULL
-
-t_piece	*ft_add_piece_to_list(int *tab, t_piece *piece, t_piece *first)
+t_piece	*ft_add_piece_to_list(size_t *tab, t_piece *piece, t_piece *first)
 {
 	static char c = 'A';
 

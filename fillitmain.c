@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   fillitmain.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cyrmorin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mbriffau <mbriffau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/12 18:48:09 by cyrmorin          #+#    #+#             */
-/*   Updated: 2016/12/12 18:48:12 by cyrmorin         ###   ########.fr       */
+/*   Updated: 2017/01/16 15:20:49 by mbriffau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../2ndtrylibft/libft.h"
 #include "fillit.h"
 
 char	*ft_clean(char *str, char *buffer)
@@ -33,52 +32,28 @@ char	*ft_clean(char *str, char *buffer)
 	str[i] = '\0';
 	return (str);
 }
-/*
-char **ft_initialize_tab(char** tab)
-{
-	int i;
-	int j;
 
-	i = 0;
-	j = 2;
-	tab = (char **)malloc(sizeof(char *) * 8);
-	if (!tab)
-		return (0);
-	tab[7] = 0;
-	while (tab[i] != 0)
-	{
-		tab[i] = (char *)malloc(sizeof(char) 9);
-		if (!tab[i])
-			return(0);
-		ft_bzero(tab[i], 9);
-		while (i < 3 && j < 6)
-	}
-}*/
-/*
-int	ft_isvalid(char **tab)
-{
-	int i;
-	int j;
-
-	i = 0;
-	j = 0;
-	while (tab[i] != 0)
-	{
-
-	}
-
-}
-*/
 int	main(int argc, char **argv)
 {
 	int fd;
 	int i;
 	char buffer[21];
 	char **tab;
+	t_piece		*alst;
+	t_piece		*piece;
+	//size_t		*copy;
+	//t_piece		*tmp;
 
+
+	/*if (!(copy = (size_t*)malloc(13)))
+		return (0);*/
+	// init a 0
+	alst = NULL;
+	piece = NULL;
 	i = 0;
 	if (argc != 2)
 		return (0);
+	void				*ft_memset(void *s, int c, size_t n);
 	ft_memset(buffer, ' ', 21);
 	fd = open(argv[1], O_RDONLY);
 	while (read(fd, buffer, 21) != 0)
@@ -95,22 +70,23 @@ int	main(int argc, char **argv)
 		tab[i] = ft_clean(tab[i], buffer);
 		i++;
 	}
-
-	//partir non ecrite pour l'instant
-	/*
-	if (ft_isvalid(tab) != 1)
-	{
-		write(1, "error", 5);
-		return (0)
-	}
-	*/
-	//tests
 	i = 0;
 	while (tab[i])
 	{
-		printf("%s", tab[i]);
+		ft_sort(tab[i], piece, alst);
+		printf("OK\n");
 		i++;
 	}
-
+	// copy[0] = alst->tab[0];
+	// copy[1] = alst->tab[1];
+	// copy[2] = alst->tab[2];
+	// copy[3] = alst->tab[3];
+	// tmp = alst->next;
+	// while (tmp)
+	// {
+	// 	copy = search_slot(copy, tmp->tab);
+	// 	tmp = tmp->next;
+	// }
+	//ft_itoa_piece(copy, limit); // trouver la limite de copy et la revoyer dans la fonction.
 	return (0);
 }

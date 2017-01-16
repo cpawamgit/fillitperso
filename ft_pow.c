@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd2.c                                       :+:      :+:    :+:   */
+/*   ft_pow.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbriffau <mbriffau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/22 23:23:54 by cyrmorin          #+#    #+#             */
-/*   Updated: 2017/01/14 23:21:19 by mbriffau         ###   ########.fr       */
+/*   Created: 2017/01/13 15:49:02 by mbriffau          #+#    #+#             */
+/*   Updated: 2017/01/14 23:01:49 by mbriffau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "fillit.h"
 
-
-#include <stdio.h>
-t_piece	*ft_lstadd2(t_piece *first, t_piece *nnew)
+size_t	ft_pow(size_t n, int power) /*donne la puissance POWER de N. */
 {
-	printf("lstadd\n");
-	t_piece *tmp;
+	size_t		exp;
 
-	tmp = NULL;
-	if (first == NULL)
-		return (nnew);
-	else
+	if (power == 0)
+		return (1);
+	exp = n;
+	while (1 < power--)
 	{
-		tmp = first;
-		while (tmp->next != NULL)
-		{
-			tmp = tmp->next;
-		}
-		tmp->next = nnew;
-		return (first);
+		n *=  exp;
 	}
+	return (n);
 }
